@@ -14,17 +14,20 @@ find_package(turtlesim REQUIRED)
 
 #pasta do node e caminho do arquivo cpp
 add_executable(circle_draw src/circle_draw.cpp)
+add_executable(pose_subscriber src/pose_subscriber.cpp)
 
 # Linkar as bibliotecas
 
 #pasta do node e RCLCPP
 ament_target_dependencies(circle_draw rclcpp geometry_msgs std_msgs turtlesim)
+ament_target_dependencies(pose_subscriber rclcpp geometry_msgs std_msgs turtlesim)
 
 # Instalar o executável
 install(TARGETS
 
-  #pasta do node
+  #nome do executavel
   circle_draw
+  pose_subscriber
   DESTINATION lib/${PROJECT_NAME})
 
 # Definir as dependências
